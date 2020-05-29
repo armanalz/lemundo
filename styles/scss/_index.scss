@@ -1,0 +1,111 @@
+.container {
+
+    margin: 10rem auto;
+    max-width: 90rem;
+    background-color: $container-color;
+    display: grid;
+    grid-template-rows: 7rem 50rem;
+    grid-template-columns: repeat(3, 30rem);
+
+    @include respond(phone) {
+
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    &_tab {
+
+        background-color: $tab-color;
+        font-family: $tab-font;
+        padding-top: 2.2rem;
+        font-size: 2rem;
+        color: $tab-font-color;
+        text-align: center;
+        grid-row: 1/2;
+        text-transform: capitalize;
+        font-weight: 500;
+        cursor: pointer;
+
+        @include respond(phone) {
+
+            height: 7rem;
+    
+        }
+
+        &.active, &:hover {
+
+            background-color: $active-color;
+            color: $active-font-color;
+            border-bottom: solid 2px $active-font-color;
+        }
+
+        &.first {
+
+            grid-column: 1/2; 
+            
+            @include respond(phone) {
+
+                max-width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+        
+            }
+
+        }
+
+        &.second {
+
+            grid-column: 2/3;
+            border-left: 1px solid $color-white;
+            border-right: 1px solid $color-white;
+
+        }
+
+        &.third {
+
+            grid-column: 3/-1;
+
+        }
+
+        &-content {
+
+            grid-row: 2/-1;
+            grid-column: 1/-1;
+            font-family: $content-font;
+            font-size: 1.2rem;
+            color: $content-font-color;
+            text-align: left;
+            padding: 5.5rem 4.5rem;
+            visibility: hidden;
+
+            @include respond(phone) {
+
+                height: 0;
+                display: none;
+        
+            }
+
+            &.active {
+
+                visibility: visible;
+                height: auto;
+                display: flex;
+            }
+
+            &.first {
+
+
+            }
+    
+            &.second {
+    
+            }
+    
+            &.third {
+    
+            }
+
+        }
+    }
+}
