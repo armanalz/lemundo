@@ -78,6 +78,7 @@
             text-align: left;
             padding: 5.5rem 4.5rem;
             visibility: hidden;
+            transition: height .4s ease .4s;
 
             @include respond(phone) {
 

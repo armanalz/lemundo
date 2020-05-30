@@ -86,6 +86,7 @@ html {
   text-align: left;
   padding: 5.5rem 4.5rem;
   visibility: hidden;
+  transition: height 0.4s ease 0.4s;
 }
 @media only screen and (max-width: 48em) {
   .container_tab-content {

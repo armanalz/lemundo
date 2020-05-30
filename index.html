@@ -6,41 +6,21 @@
     </head>
     <body>
         <div class="container" id="spec">
-            <h2 class="container_tab first active" tabindex="0">General</h2>
-            <dl class="container_tab-content first active">
-                <dt>Model</dt>
-                <dd>DC11</dd>
-                <dt>Delivery time</dt>
-                <dd>2-3 weeks</dd>
+            <h2 class="container_tab first" tabindex="0"></h2>
+            <dl class="container_tab-content first">
+                <dt id="name"></dt>
+                <dd id="value"></dd>
+                <dt id="name"></dt>
+                <dd id="value"></dd>
             </dl>
-            <h2 class="container_tab second" tabindex="0">Engine</h2>
+            <h2 class="container_tab second" tabindex="1"></h2>
             <dl class="container_tab-content second">
-                <dt>bhp</dt>
-                <dd>404</dd>
+                <dt id="name"></dt>
+                <dd id="value"></dd>
             </dl>
-            <h2 class="container_tab third" tabindex="0">specials</h2>
-            <span class="container_tab-content third">convertible, leather seats</span>
+            <h2 class="container_tab third" tabindex="2"></h2>
+            <span class="container_tab-content third" id="text">convertible, leather seats</span>
         </div>
-        <script language="JavaScript">
-            SPECDT = [
-                {
-                    group: 'General',
-                    items: [
-                        {name: 'Model', value: 'DC11'},
-                        {name: 'Delivery time', value: '2-3 weeks'},
-                    ],
-                },
-                {
-                    group: 'Engine',
-                    items: [
-                        {name: 'bhp', value: '404'},
-                    ],
-                },
-                {
-                    group: 'specials',
-                    text: 'convertible, leather seats',
-                },
-            ];
-        </script>
+        <script language="JavaScript" src="js/scripts.js"></script>
     </body>
 </html>
