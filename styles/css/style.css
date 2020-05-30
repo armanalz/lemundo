@@ -28,7 +28,7 @@ html {
   max-width: 90rem;
   background-color: #FBFBFB;
   display: grid;
-  grid-template-rows: 7rem 50rem;
+  grid-template-rows: 7rem 25rem;
   grid-template-columns: repeat(3, 30rem);
 }
 @media only screen and (max-width: 48em) {
@@ -36,6 +36,8 @@ html {
     max-width: 100%;
     display: flex;
     flex-direction: column;
+    grid-template-rows: none;
+    grid-template-columns: none;
   }
 }
 .container_tab {
@@ -60,14 +62,11 @@ html {
   color: #6b04af;
   border-bottom: solid 2px #6b04af;
 }
+.container_tab:focus {
+  outline: none;
+}
 .container_tab.first {
   grid-column: 1/2;
-}
-@media only screen and (max-width: 48em) {
-  .container_tab.first {
-    max-width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 .container_tab.second {
   grid-column: 2/3;
@@ -81,23 +80,65 @@ html {
   grid-row: 2/-1;
   grid-column: 1/-1;
   font-family: "Fira Sans", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #454545;
   text-align: left;
   padding: 5.5rem 4.5rem;
   visibility: hidden;
-  transition: height 0.4s ease 0.4s;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease 0.15s;
+  transform-origin: top left;
+  transform: scale(0, 0);
 }
 @media only screen and (max-width: 48em) {
   .container_tab-content {
+    padding: 0;
     height: 0;
-    display: none;
   }
+}
+.container_tab-content > * {
+  margin-bottom: 1rem;
 }
 .container_tab-content.active {
   visibility: visible;
   height: auto;
   display: flex;
+  padding: 5.5rem 4.5rem;
+  transform: scale(1, 1);
+}
+.price_wrapper {
+  margin: 10rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90rem;
+}
+@media only screen and (max-width: 32em) {
+  .price_wrapper {
+    flex-direction: column;
+  }
+  .price_wrapper > * {
+    margin: 1rem auto;
+  }
+}
+.price_wrapper-option {
+  margin: auto 1rem;
+}
+.price_wrapper-text {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.4rem;
+  color: #454545;
+  text-transform: capitalize;
+}
+.price_wrapper-head {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: #059925;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin: 0 1rem auto 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

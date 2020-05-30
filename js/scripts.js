@@ -18,7 +18,7 @@ SPECDT = [
     },
 ];
 
-class projectInput {
+class ProjectInput {
 
     constructor() {
 
@@ -63,7 +63,7 @@ class projectInput {
 }
 
 
-class clickHandler {
+class ClickHandler {
 
     constructor() {
 
@@ -91,7 +91,7 @@ class clickHandler {
 
         this.tabTitles.forEach(item => {
 
-            item.addEventListener('click', event => {
+            item.addEventListener('click', () => {
     
                 switch(item.classList[1]) {
                     case "first":
@@ -131,9 +131,60 @@ class clickHandler {
     }
 }
 
+class PriceHandler {
+
+    constructor() {
+        
+        this.amountTarget = document.querySelector('#amount');
+        this.amountNumber = parseInt(this.amountTarget.value);
+        this.saveTarget = document.querySelector('#save');
+        this.payTarget = document.querySelector('#pay');
+        this.price = 19.95;
+
+        this.PriceCalculator();
+        this.priceAssignment();
+
+        this.amountTarget.addEventListener('change', () => {
+            this.amountNumber = parseInt(this.amountTarget.value);
+            this.PriceCalculator();
+            this.priceAssignment();
+            
+        })
+
+    }
+
+    PriceCalculator() {
+
+        if( this.amountNumber < 3) {
+
+            this.save = (this.amountNumber * this.price * 0.1).toFixed(2) + "€";
+            this.pay = (this.amountNumber * this.price * 0.9).toFixed(2) + "€";
+
+        }else if ( this.amountNumber === 3 ) {
+
+            this.save = (this.amountNumber * this.price * 0.2).toFixed(2) + "€";
+            this.pay = (this.amountNumber * this.price * 0.8).toFixed(2) + "€";
+
+        }else {
+
+            this.save = (this.amountNumber * this.price * 0.3).toFixed(2) + "€";
+            this.pay = (this.amountNumber * this.price * 0.7).toFixed(2) + "€";
+
+        }
+
+    }
+
+    priceAssignment() {
+
+        this.saveTarget.innerHTML = this.save;
+        this.payTarget.innerHTML = this.pay;
+    }
+}
+
 
 
     
 
-const pjr = new projectInput(SPECDT);
-const click = new clickHandler();
+const pjr = new ProjectInput(SPECDT);
+const click = new ClickHandler();
+const price = new PriceHandler();
